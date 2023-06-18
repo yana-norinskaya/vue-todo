@@ -1,11 +1,11 @@
 <template>
   <li @dblclick="$store.commit('editTask', task.id)">
-    <p v-if="!task.disabled">{{ task.value }}</p>
+    <p v-if="task.disabled">{{ task.value }}</p>
     <input
-      v-if="task.disabled"
+      v-if="!task.disabled"
       v-model="task.value"
       type="text"
-      :disabled="!task.disabled"
+      :disabled="task.disabled"
       @keyup.enter="$store.commit('editTask', task.id)"
     />
     <img
@@ -24,24 +24,12 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
 export default {
-  data() {
-    return {
-      newValue: "",
-    };
-  },
   name: "TaskItem",
   props: {
     task: {
       type: Object,
       required: true,
-    },
-  },
-  methods: {
-    ...mapMutations(["updateValueOfTask"]),
-    onChangeValue(id) {
-      editTask(id);
     },
   },
 };
@@ -93,8 +81,5 @@ li {
       transform: scale(1.1);
     }
   }
-}
-a {
-  color: #42b983;
 }
 </style>

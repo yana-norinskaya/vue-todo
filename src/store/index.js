@@ -7,7 +7,6 @@ export default new Vuex.Store({
   state: {
     tasks: [],
   },
-  getters: {},
   mutations: {
     addTask(state, task) {
       state.tasks.push(task);
@@ -28,6 +27,4 @@ export default new Vuex.Store({
       localStorage.setItem("tasks", JSON.stringify(state.tasks));
     },
   },
-  actions: {},
-  modules: {},
 });

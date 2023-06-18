@@ -4,19 +4,17 @@
       <TaskItem :key="task.id" v-for="task in tasksStore" :task="task" />
     </transition-group>
   </ul>
-  <p class="empty" v-else>Задач нет...</p>
+  <p v-else class="empty">There are no tasks</p>
 </template>
 
 <script>
 import TaskItem from "./TaskItem.vue";
 import { mapState, mapMutations } from "vuex";
 export default {
-  data() {
-    return {
-      value: "",
-    };
+  name: "TaskList",
+  components: {
+    TaskItem,
   },
-
   computed: {
     ...mapState({
       tasksStore: (state) => state.tasks,
@@ -25,11 +23,6 @@ export default {
   },
   mounted() {
     this.setTasks;
-  },
-  name: "TaskList",
-
-  components: {
-    TaskItem,
   },
 };
 </script>
@@ -54,7 +47,7 @@ ul {
   &::-webkit-scrollbar-thumb {
     background-color: #3f3f46;
     border-radius: 20px;
-    border: 3px solid #3f3f46;
+    border: 3px solid #d6d3d1;
   }
 }
 .empty {
@@ -73,10 +66,11 @@ ul {
 }
 .list-leave-to /* .list-leave-active below version 2.1.8 */ {
   opacity: 0;
-  transform: translateX(300px);
+
+  transform: translateY(30px);
 }
 .list-enter {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(-30px);
 }
 </style>

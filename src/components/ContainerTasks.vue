@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <PostForm />
-    <TaskList @remove="removeTask" />
+    <TaskList />
   </div>
 </template>
 
@@ -17,14 +17,12 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .container {
   width: 500px;
-  background-color: #737373;
+  background-color: transparent;
   padding: 1rem;
-  border-radius: 1rem;
-  height: 90vh;
+  height: 100%;
   display: grid;
   grid-template-rows: 50px auto;
   gap: 10px;

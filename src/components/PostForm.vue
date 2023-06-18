@@ -1,13 +1,14 @@
 <template>
   <form>
-    <input v-model="value" placeholder="Введите задачу" />
-    <button @click="createTask">Создать</button>
+    <input v-model="value" placeholder="What you want to do?" />
+    <button @click="createTask">Add</button>
   </form>
 </template>
 
 <script>
 import { mapMutations } from "vuex";
 export default {
+  name: "PostForm",
   data() {
     return {
       value: "",
@@ -19,7 +20,7 @@ export default {
       const newTask = {
         id: Date.now(),
         value: this.value,
-        disabled: false,
+        disabled: true,
       };
       if (this.value) {
         this.addTask(newTask);
@@ -27,7 +28,6 @@ export default {
       this.value = "";
     },
   },
-  name: "PostForm",
 };
 </script>
 
@@ -40,19 +40,21 @@ form {
 input {
   padding: 1rem;
   border-radius: 1rem;
-  border: 0.4rem solid #525252;
+  border: 0.4rem solid #737373;
   background-color: #d4d4d4;
   width: 100%;
-  color: #fafafa;
+  color: #737373;
+  font-size: 1rem;
 }
 button {
   padding: 1rem;
   border-radius: 1rem;
-  border: 2px solid #525252;
-  background-color: #525252;
+  border: 2px solid #737373;
+  background-color: #737373;
   font-size: 14px;
   font-weight: 600;
   color: white;
+  text-transform: uppercase;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   &:hover {
