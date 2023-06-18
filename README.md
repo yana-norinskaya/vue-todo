@@ -1,19 +1,9 @@
 # vue-todo
 
-## Project setup
-```
-npm install
-```
+### SCREENSHOT
+   <img src="./src/assets/screen_vue.jpg"/>
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Built with
+- Vue 2 js - https://ru.vuejs.org/
+- Vue Router - https://v3.router.vuejs.org/ru/
+- Vuex - https://www.typescriptlang.org/
